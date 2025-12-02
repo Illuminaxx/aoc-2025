@@ -2,13 +2,10 @@ import gleam/int
 import gleam/list
 import gleam/string
 
-// ============ PART 1 ============
-// Vérifie si un nombre est invalide (formé d'une répétition exactement 2 fois)
 pub fn is_invalid_id_part1(n: Int) -> Bool {
   let s = int.to_string(n)
   let len = string.length(s)
 
-  // La longueur doit être paire
   case len % 2 {
     0 -> {
       let half = len / 2
@@ -20,13 +17,10 @@ pub fn is_invalid_id_part1(n: Int) -> Bool {
   }
 }
 
-// ============ PART 2 ============
-// Vérifie si un nombre est invalide (formé d'une répétition au moins 2 fois)
 pub fn is_invalid_id_part2(n: Int) -> Bool {
   let s = int.to_string(n)
   let len = string.length(s)
 
-  // Essayer toutes les longueurs de séquence possibles
   check_pattern_lengths(s, len, 1)
 }
 
@@ -78,8 +72,6 @@ fn check_all_chunks(
   }
 }
 
-// ============ COMMUN ============
-// Parse une plage "11-22" et retourne (11, 22)
 pub fn parse_range(range: String) -> Result(#(Int, Int), Nil) {
   case string.split(range, "-") {
     [start_str, end_str] -> {
@@ -92,7 +84,6 @@ pub fn parse_range(range: String) -> Result(#(Int, Int), Nil) {
   }
 }
 
-// Trouve tous les IDs invalides dans une plage (générique)
 pub fn find_invalid_in_range(
   start: Int,
   end: Int,
@@ -119,17 +110,14 @@ fn find_invalid_helper(
   }
 }
 
-// Résout la partie 1
 pub fn solve_part1(input: String) -> Int {
   solve_generic(input, is_invalid_id_part1)
 }
 
-// Résout la partie 2
 pub fn solve_part2(input: String) -> Int {
   solve_generic(input, is_invalid_id_part2)
 }
 
-// Fonction générique pour résoudre
 fn solve_generic(input: String, is_invalid_fn: fn(Int) -> Bool) -> Int {
   let ranges_str = string.trim(input)
   let ranges = string.split(ranges_str, ",")

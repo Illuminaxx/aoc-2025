@@ -8,11 +8,20 @@ pub fn main() {
   // Day 1
   case fs.read("input.txt") {
     Ok(contents) -> {
-      let count = day01.count_hits(contents)
-      io.println("Number of times dial hits 0: " <> int.to_string(count))
+      let count_part1 = day01.count_hits_part1(contents)
+      io.println(
+        "Day 1 Part 1 - Number of times dial ends on 0: "
+        <> int.to_string(count_part1),
+      )
+
+      let count_part2 = day01.count_hits_part2(contents)
+      io.println(
+        "Day 1 Part 2 - Number of times dial hits 0: "
+        <> int.to_string(count_part2),
+      )
     }
     Error(reason) -> {
-      io.println(reason)
+      io.println("Day 1 error: " <> reason)
     }
   }
 
