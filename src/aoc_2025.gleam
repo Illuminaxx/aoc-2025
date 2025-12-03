@@ -1,5 +1,6 @@
 import day01
 import day02
+import day03
 import fs
 import gleam/int
 import gleam/io
@@ -40,6 +41,23 @@ pub fn main() {
     }
     Error(reason) -> {
       io.println("Day 2 error: " <> reason)
+    }
+  }
+
+  // Day 3
+  case fs.read("input3.txt") {
+    Ok(contents) -> {
+      let joltage_part_one = day03.solve_part_one(contents)
+      io.println(
+        "Day 3 part 1 - Joltage Total:" <> int.to_string(joltage_part_one),
+      )
+      let joltage_part_two = day03.solve_part_two(contents)
+      io.println(
+        "Day 3 part 2 - Joltage Total:" <> int.to_string(joltage_part_two),
+      )
+    }
+    Error(reason) -> {
+      io.println("Day 3 error: " <> reason)
     }
   }
 }
