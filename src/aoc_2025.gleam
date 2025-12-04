@@ -1,6 +1,7 @@
 import day01
 import day02
 import day03
+import day04
 import fs
 import gleam/int
 import gleam/io
@@ -58,6 +59,19 @@ pub fn main() {
     }
     Error(reason) -> {
       io.println("Day 3 error: " <> reason)
+    }
+  }
+
+  // Day 4
+  case fs.read("input4.txt") {
+    Ok(contents) -> {
+      let rolls = day04.solve_part1(contents)
+      io.println("Day 4 part 1: " <> int.to_string(rolls))
+      let removed_rolls = day04.solve_part2(contents)
+      io.println("Day 4 part 2: " <> int.to_string(removed_rolls))
+    }
+    Error(reason) -> {
+      io.println("Day 4 error: " <> reason)
     }
   }
 }
