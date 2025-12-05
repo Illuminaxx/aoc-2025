@@ -1,4 +1,3 @@
-// src/day05.gleam
 import gleam/int
 import gleam/list
 import gleam/string
@@ -121,16 +120,13 @@ fn merge_sorted(ranges: List(Range), acc: List(Range)) -> List(Range) {
           let Range(last_start, last_end) = last
           let Range(first_start, first_end) = first
 
-          
           case first_start <= last_end + 1 {
             True -> {
-              
               let new_end = int.max(last_end, first_end)
               let merged = Range(last_start, new_end)
               merge_sorted(rest, [merged, ..prev])
             }
             False -> {
-              
               merge_sorted(rest, [first, last, ..prev])
             }
           }
@@ -139,7 +135,6 @@ fn merge_sorted(ranges: List(Range), acc: List(Range)) -> List(Range) {
     }
   }
 }
-
 
 fn count_ids_in_range(range: Range) -> Int {
   let Range(start, end) = range
