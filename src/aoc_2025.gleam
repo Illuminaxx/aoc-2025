@@ -4,6 +4,7 @@ import day03
 import day04
 import day05
 import day06
+import day07
 import fs
 import gleam/int
 import gleam/io
@@ -96,6 +97,7 @@ pub fn main() {
       io.println("Day 5 error: " <> reason)
     }
   }
+
   // Day 6 
   case fs.read("input6.txt") {
     Ok(contents) -> {
@@ -110,7 +112,19 @@ pub fn main() {
       )
     }
     Error(reason) -> {
-      io.println("Day 5 error: " <> reason)
+      io.println("Day 6 error: " <> reason)
+    }
+  }
+
+  case fs.read("input7.txt") {
+    Ok(contents) -> {
+      let splits = day07.solve_part1(contents)
+      io.println("Day 7 part 1 - Beam splits: " <> int.to_string(splits))
+      let timelines = day07.solve_part2(contents)
+      io.println("Day 7 Part 2 - Timelines: " <> int.to_string(timelines))
+    }
+    Error(reason) -> {
+      io.println("Day 7 error: " <> reason)
     }
   }
 }
