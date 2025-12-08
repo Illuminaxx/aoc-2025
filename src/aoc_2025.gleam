@@ -5,6 +5,7 @@ import day04
 import day05
 import day06
 import day07
+import day08
 import fs
 import gleam/int
 import gleam/io
@@ -116,6 +117,7 @@ pub fn main() {
     }
   }
 
+  // Day 7
   case fs.read("input7.txt") {
     Ok(contents) -> {
       let splits = day07.solve_part1(contents)
@@ -125,6 +127,24 @@ pub fn main() {
     }
     Error(reason) -> {
       io.println("Day 7 error: " <> reason)
+    }
+  }
+
+  // Day 8
+  case fs.read("input8.txt") {
+    Ok(contents) -> {
+      let teleporter = day08.solve_part1(contents)
+      io.println(
+        "Day 8 part 1 - Teleporter maintenance: " <> int.to_string(teleporter),
+      )
+      let teleporter2 = day08.solve_part2(contents)
+      io.println(
+        "Day 8 Part 2 - Last connection X product: "
+        <> int.to_string(teleporter2),
+      )
+    }
+    Error(reason) -> {
+      io.println("Day 8 error: " <> reason)
     }
   }
 }
