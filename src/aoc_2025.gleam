@@ -3,6 +3,7 @@ import day02
 import day03
 import day04
 import day05
+import day06
 import fs
 import gleam/int
 import gleam/io
@@ -51,11 +52,11 @@ pub fn main() {
     Ok(contents) -> {
       let joltage_part_one = day03.solve_part_one(contents)
       io.println(
-        "Day 3 part 1 - Joltage Total:" <> int.to_string(joltage_part_one),
+        "Day 3 part 1 - Joltage Total: " <> int.to_string(joltage_part_one),
       )
       let joltage_part_two = day03.solve_part_two(contents)
       io.println(
-        "Day 3 part 2 - Joltage Total:" <> int.to_string(joltage_part_two),
+        "Day 3 part 2 - Joltage Total: " <> int.to_string(joltage_part_two),
       )
     }
     Error(reason) -> {
@@ -89,6 +90,23 @@ pub fn main() {
       io.println(
         "Day 5 part 2 - All Fresh ingredients: "
         <> int.to_string(all_fresh_ingredients),
+      )
+    }
+    Error(reason) -> {
+      io.println("Day 5 error: " <> reason)
+    }
+  }
+  // Day 6 
+  case fs.read("input6.txt") {
+    Ok(contents) -> {
+      let trash_compacted = day06.solve_part1(contents)
+      io.println(
+        "Day 6 part 1 - Trash compactor Total: "
+        <> int.to_string(trash_compacted),
+      )
+      let total_rtl = day06.solve_part2(contents)
+      io.println(
+        "Day 6 Part 2 - Grand total (RTL): " <> int.to_string(total_rtl),
       )
     }
     Error(reason) -> {
