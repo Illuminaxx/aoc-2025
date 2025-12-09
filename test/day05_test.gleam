@@ -1,13 +1,14 @@
+import day05
 import gleeunit
 import gleeunit/should
-import day05
 
 pub fn main() {
   gleeunit.main()
 }
 
 pub fn example_part1_test() {
-  let input = "3-5
+  let input =
+    "3-5
 10-14
 16-20
 12-18
@@ -18,13 +19,14 @@ pub fn example_part1_test() {
 11
 17
 32"
-  
+
   day05.solve_part1(input)
   |> should.equal(3)
 }
 
 pub fn example_part2_test() {
-  let input = "3-5
+  let input =
+    "3-5
 10-14
 16-20
 12-18
@@ -35,7 +37,7 @@ pub fn example_part2_test() {
 11
 17
 32"
-  
+
   day05.solve_part2(input)
   |> should.equal(14)
 }

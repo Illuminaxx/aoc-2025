@@ -6,13 +6,14 @@ import day05
 import day06
 import day07
 import day08
+import day09
 import fs
 import gleam/int
 import gleam/io
 
 pub fn main() {
   // Day 1
-  case fs.read("input.txt") {
+  case fs.read("inputs/input.txt") {
     Ok(contents) -> {
       let count_part1 = day01.count_hits_part1(contents)
       io.println(
@@ -27,12 +28,12 @@ pub fn main() {
       )
     }
     Error(reason) -> {
-      io.println("Day 1 error: " <> reason)
+      io.println_error("Day 1 error: " <> reason)
     }
   }
 
   // Day 2
-  case fs.read("input2.txt") {
+  case fs.read("inputs/input2.txt") {
     Ok(contents) -> {
       let sum_part1 = day02.solve_part1(contents)
       io.println(
@@ -45,12 +46,12 @@ pub fn main() {
       )
     }
     Error(reason) -> {
-      io.println("Day 2 error: " <> reason)
+      io.println_error("Day 2 error: " <> reason)
     }
   }
 
   // Day 3
-  case fs.read("input3.txt") {
+  case fs.read("inputs/input3.txt") {
     Ok(contents) -> {
       let joltage_part_one = day03.solve_part_one(contents)
       io.println(
@@ -62,12 +63,12 @@ pub fn main() {
       )
     }
     Error(reason) -> {
-      io.println("Day 3 error: " <> reason)
+      io.println_error("Day 3 error: " <> reason)
     }
   }
 
   // Day 4
-  case fs.read("input4.txt") {
+  case fs.read("inputs/input4.txt") {
     Ok(contents) -> {
       let rolls = day04.solve_part1(contents)
       io.println("Day 4 part 1 - Printing : " <> int.to_string(rolls))
@@ -77,12 +78,12 @@ pub fn main() {
       )
     }
     Error(reason) -> {
-      io.println("Day 4 error: " <> reason)
+      io.println_error("Day 4 error: " <> reason)
     }
   }
 
   // Day 5
-  case fs.read("input5.txt") {
+  case fs.read("inputs/input5.txt") {
     Ok(contents) -> {
       let fresh_count = day05.solve_part1(contents)
       io.println(
@@ -95,12 +96,12 @@ pub fn main() {
       )
     }
     Error(reason) -> {
-      io.println("Day 5 error: " <> reason)
+      io.println_error("Day 5 error: " <> reason)
     }
   }
 
   // Day 6 
-  case fs.read("input6.txt") {
+  case fs.read("inputs/input6.txt") {
     Ok(contents) -> {
       let trash_compacted = day06.solve_part1(contents)
       io.println(
@@ -113,12 +114,12 @@ pub fn main() {
       )
     }
     Error(reason) -> {
-      io.println("Day 6 error: " <> reason)
+      io.println_error("Day 6 error: " <> reason)
     }
   }
 
   // Day 7
-  case fs.read("input7.txt") {
+  case fs.read("inputs/input7.txt") {
     Ok(contents) -> {
       let splits = day07.solve_part1(contents)
       io.println("Day 7 part 1 - Beam splits: " <> int.to_string(splits))
@@ -126,12 +127,12 @@ pub fn main() {
       io.println("Day 7 Part 2 - Timelines: " <> int.to_string(timelines))
     }
     Error(reason) -> {
-      io.println("Day 7 error: " <> reason)
+      io.println_error("Day 7 error: " <> reason)
     }
   }
 
   // Day 8
-  case fs.read("input8.txt") {
+  case fs.read("inputs/input8.txt") {
     Ok(contents) -> {
       let teleporter = day08.solve_part1(contents)
       io.println(
@@ -144,7 +145,25 @@ pub fn main() {
       )
     }
     Error(reason) -> {
-      io.println("Day 8 error: " <> reason)
+      io.println_error("Day 8 error: " <> reason)
+    }
+  }
+
+  // Day 9
+  case fs.read("inputs/input9.txt") {
+    Ok(contents) -> {
+      let area = day09.solve_part1(contents)
+      io.println(
+        "Day 9 part 1 - Largest area rectangle: " <> int.to_string(area),
+      )
+      let area_red_tile = day09.solve_part2(contents)
+      io.println(
+        "Day 9 part 2 - Largest rectangle in polygon: "
+        <> int.to_string(area_red_tile),
+      )
+    }
+    Error(reason) -> {
+      io.println_error("Day 9 error: " <> reason)
     }
   }
 }
