@@ -299,15 +299,11 @@ fn find_largest_in_polygon_helper(
 pub fn solve_part1(input: String) -> Int {
   let points = parse_points(input)
 
-  io.println("Number of red tiles: " <> int.to_string(list.length(points)))
-
   find_largest_rectangle(points)
 }
 
 pub fn solve_part2(input: String) -> Int {
   let points = parse_points(input)
-
-  io.println("Number of red tiles: " <> int.to_string(list.length(points)))
 
   find_largest_rectangle_in_polygon(points)
 }
