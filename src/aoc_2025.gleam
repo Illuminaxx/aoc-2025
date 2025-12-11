@@ -8,6 +8,7 @@ import day07
 import day08
 import day09
 import day10
+import day11
 import fs
 import gleam/int
 import gleam/io
@@ -178,6 +179,17 @@ pub fn main() {
     }
     Error(reason) -> {
       io.println_error("Day 10 error: " <> reason)
+    }
+  }
+
+  // Day 11 
+  case fs.read("inputs/input11.txt") {
+    Ok(contents) -> {
+      let paths = day11.solve_part1(contents)
+      io.println("Day 11 part 1 - : " <> int.to_string(paths))
+    }
+    Error(reason) -> {
+      io.println_error("Day 11 part 1 - Path lead: " <> reason)
     }
   }
 }
