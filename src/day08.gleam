@@ -238,9 +238,6 @@ pub fn solve_part2(input: String) -> Int {
 
   case last_edge {
     Some(Edge(Point3D(x1, _, _), Point3D(x2, _, _), _)) -> {
-      io.println(
-        "Last connection: " <> int.to_string(x1) <> " and " <> int.to_string(x2),
-      )
       x1 * x2
     }
     None -> 0
