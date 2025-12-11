@@ -187,6 +187,8 @@ pub fn main() {
     Ok(contents) -> {
       let paths = day11.solve_part1(contents)
       io.println("Day 11 part 1 - : " <> int.to_string(paths))
+      let paths_2 = day11.solve_part2(contents)
+      io.println("Day 11 part é - : " <> int.to_string(paths_2))
     }
     Error(reason) -> {
       io.println_error("Day 11 part 1 - Path lead: " <> reason)
