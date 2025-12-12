@@ -173,9 +173,11 @@ pub fn main() {
   case fs.read("inputs/input10.txt") {
     Ok(contents) -> {
       let buttons = day10.solve_part1(contents)
-      io.println("Day 10 part 1 - : " <> int.to_string(buttons))
+      io.println("Day 10 part 1 - Buttons: " <> int.to_string(buttons))
       let button_part2 = day10.solve_part2(contents)
-      io.println("Day 10 part 2 - : " <> int.to_string(button_part2))
+      io.println(
+        "Day 10 part 2 - button clicked: " <> int.to_string(button_part2),
+      )
     }
     Error(reason) -> {
       io.println_error("Day 10 error: " <> reason)
@@ -186,12 +188,12 @@ pub fn main() {
   case fs.read("inputs/input11.txt") {
     Ok(contents) -> {
       let paths = day11.solve_part1(contents)
-      io.println("Day 11 part 1 - : " <> int.to_string(paths))
+      io.println("Day 11 part 1 - path : " <> int.to_string(paths))
       let paths_2 = day11.solve_part2(contents)
-      io.println("Day 11 part é - : " <> int.to_string(paths_2))
+      io.println("Day 11 part 2 - path travel: " <> int.to_string(paths_2))
     }
     Error(reason) -> {
-      io.println_error("Day 11 part 1 - Path lead: " <> reason)
+      io.println_error("Day 11 error - Path lead: " <> reason)
     }
   }
 }
