@@ -9,6 +9,7 @@ import day08
 import day09
 import day10
 import day11
+import day12
 import fs
 import gleam/int
 import gleam/io
@@ -176,7 +177,7 @@ pub fn main() {
       io.println("Day 10 part 1 - Buttons: " <> int.to_string(buttons))
       let button_part2 = day10.solve_part2(contents)
       io.println(
-        "Day 10 part 2 - button clicked: " <> int.to_string(button_part2),
+        "Day 10 part 2 - Button clicked: " <> int.to_string(button_part2),
       )
     }
     Error(reason) -> {
@@ -188,12 +189,22 @@ pub fn main() {
   case fs.read("inputs/input11.txt") {
     Ok(contents) -> {
       let paths = day11.solve_part1(contents)
-      io.println("Day 11 part 1 - path : " <> int.to_string(paths))
+      io.println("Day 11 part 1 - Path : " <> int.to_string(paths))
       let paths_2 = day11.solve_part2(contents)
-      io.println("Day 11 part 2 - path travel: " <> int.to_string(paths_2))
+      io.println("Day 11 part 2 - Path travel: " <> int.to_string(paths_2))
     }
     Error(reason) -> {
-      io.println_error("Day 11 error - Path lead: " <> reason)
+      io.println_error("Day 11 error: " <> reason)
+    }
+  }
+
+  case fs.read("inputs/input12.txt") {
+    Ok(contents) -> {
+      let farms = day12.solve_part1(contents)
+      io.println("Day 12 part 1 - Farms: " <> int.to_string(farms))
+    }
+    Error(reason) -> {
+      io.println_error("Day 11 error: " <> reason)
     }
   }
 }
