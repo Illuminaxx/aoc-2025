@@ -11,8 +11,6 @@ pub type Graph =
 pub type Cache =
   Dict(#(String, String), Int)
 
-// ============ PARSING ============
-
 pub fn parse_input(input: String) -> Graph {
   input
   |> string.replace("\r\n", "\n")
@@ -35,8 +33,6 @@ pub fn parse_input(input: String) -> Graph {
   })
 }
 
-// ============ FIND ALL PATHS ============
-
 pub fn count_paths(graph: Graph, from: String, to: String) -> Int {
   do_count_paths(graph, from, to, dict.new()).0
 }
@@ -51,14 +47,12 @@ pub fn count_paths_through(
 
   case must_visit_list {
     [node1, node2] -> {
-      // Ordre 1: from -> node1 -> node2 -> to
       let order1 = {
         count_paths_memo(graph, from, node1)
         * count_paths_memo(graph, node1, node2)
         * count_paths_memo(graph, node2, to)
       }
 
-      // Ordre 2: from -> node2 -> node1 -> to
       let order2 = {
         count_paths_memo(graph, from, node2)
         * count_paths_memo(graph, node2, node1)
@@ -74,12 +68,10 @@ pub fn count_paths_through(
   }
 }
 
-// Wrapper pour count_paths avec mémoization
 fn count_paths_memo(graph: Graph, from: String, to: String) -> Int {
   do_count_paths(graph, from, to, dict.new()).0
 }
 
-// Compter les chemins avec mémoization (version récursive avec cache)
 fn do_count_paths(
   graph: Graph,
   start: String,
@@ -113,8 +105,6 @@ fn do_count_paths(
     }
   }
 }
-
-// ============ SOLVE ============
 
 pub fn solve_part1(input: String) -> Int {
   let graph = parse_input(input)

@@ -388,9 +388,6 @@ pub fn solve_part2(input: String) -> Int {
   |> string.trim
   |> string.split("\n")
   |> list.filter_map(parse_machine_joltage)
-  |> list.index_map(fn(machine, idx) {
-    io.println("Solving machine " <> int.to_string(idx + 1) <> "/150")
-    solve_machine_joltage(machine)
-  })
+  |> list.index_map(fn(machine, _idx) { solve_machine_joltage(machine) })
   |> list.fold(0, int.add)
 }
